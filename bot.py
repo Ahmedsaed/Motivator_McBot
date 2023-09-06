@@ -5,6 +5,9 @@ from io import BytesIO
 from random import choice
 import tweepy
 from config import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, UNSPASH_API_KEY
+import warnings
+warnings.filterwarnings("ignore")
+
 
 # Maximum tweet length
 MAX_LENGTH = 280
@@ -154,7 +157,7 @@ def setup_image(current_tweet, background_image_url):
     x = (width - text_width) / 2
     y = (height - text_height) / 2
 
-    draw.text((x, y), current_tweet, font=font, fill=tweet_color, align="center")
+    draw.text((x, y), current_tweet, font=font, fill=tweet_color, align="center", stroke_width=5, stroke_fill='#3C2A21')
 
     output_image_path = "./images/output_image.jpg"
     canvas.save(output_image_path)
@@ -217,8 +220,6 @@ Photo by {photographer} on Unsplash
     response = post_tweet(tweet_body, tweet_image)
 
     print(f"Response to tweet: {response}")
-
-    print(f"Tweeting:\n{tweet_body}")
 
 if __name__ == "__main__":
     main()
