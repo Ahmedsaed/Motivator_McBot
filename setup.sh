@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 python -m venv twitter-env
 source ./twitter-env/bin/activate
 pip install -r ./requirments.txt

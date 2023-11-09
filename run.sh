@@ -1,6 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 log_file="/home/ahmed/Documents/logs/motivator_bot.log"
+
+# Check if the directory doesn't exist
+if [ ! -d "$(dirname "$log_file")" ]; then
+    mkdir -p "$(dirname "$log_file")"
+fi
+
+# Create the file
+if [ ! -e "$log_file" ]; then
+    touch "$log_file"
+fi
 
 # Activate the virtual environment
 source ./twitter-env/bin/activate
